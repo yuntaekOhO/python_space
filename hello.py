@@ -31,7 +31,7 @@ print(b)
 
 #문자열 개수 세기(count), 위치 알려주기(find)(가장 먼저나온 위치만)
 a = "hobby"
-print(a.count('b')) # 문자열에 지정한 문자 개수 반환, 없으면 0
+print(a.count('b')) # 문자열(a)에 지정한 문자('b') 개수 반환, 없으면 0
 print(a.find("a")) # 문자열에서 지정한 문자의 인덱스 반환, 없으면 -1
 print(a.index("o")) # o의 인덱스 반환, 없으면 에러
 
