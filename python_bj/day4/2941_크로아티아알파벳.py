@@ -7,6 +7,6 @@
 n = input()
 m = len(n)
 
-for i in ['c=','c-','dz=','d-','lj','nj','s=','z=']:
+for i in ['z=','c=','c-','dz=','d-','lj','nj','s=',]:
     m -= n.count(i)
 print(m)

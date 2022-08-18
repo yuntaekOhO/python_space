@@ -30,7 +30,7 @@ def sosu(n):
     idx = max([i for i in range(len(li)) if li[i] <= n/2]) #n 이하의 소수의 합 = n 이 성립하는 소수값 중 차이가 가장 작은 것 찾기 위한 if문
     for i in range(idx,-1,-1):
         for j in range(i,len(li)):
-            if li[i] + li[j] == n: # 여기가 이해 안됨
+            if li[i] + li[j] == n: # 두 소수의 합이 입력 n과 같음
                 return [li[i],li[j]]
 
 for _ in range(int(input())):
