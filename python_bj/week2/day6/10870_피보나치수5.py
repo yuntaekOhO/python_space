@@ -8,14 +8,23 @@ n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작
 첫째 줄에 n이 주어진다. n은 20보다 작거나 같은 자연수 또는 0이다.
 첫째 줄에 n번째 피보나치 수를 출력한다.
 """
-def fibo(x):
-    if x == 0: return 0
-    elif x == 1: return 1
-    else:
-        return fibo(x-2) + fibo(x-1)
-n = int(input())
-print(fibo(n))
+# def fibo(x):
+#     if x == 0: return 0
+#     elif x == 1: return 1
+#     else:
+#         return fibo(x-2) + fibo(x-1)
+# n = int(input())
+# print(fibo(n))
 
 
 #쓸데없이 리스트를 쓰려고함
 #함수에서 뭘 리턴해야할지 헷갈림
+
+
+def fibo(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else:
+        return fibo(n-2) + fibo(n-1)
+n = int(input())
+print(fibo(n))
