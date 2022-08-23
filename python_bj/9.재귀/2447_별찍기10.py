@@ -11,7 +11,7 @@ N이 3보다 클 경우, 크기 N의 패턴은 공백으로 채워진 가운데�
 def writeStar(x):
     if x == 1: # 입력된 수가 3인 경우
         return ["*"] 
-    stars = writeStar(x//3) # 이전 재귀함수에서 리턴된 별 모양을 현재 재귀에서 쓰임
+    stars = writeStar(x//3) # 이전 재귀함수에서 리턴된 별 모양을 현재 재귀에서 쓰임, 재귀는 이곳에서 끝남
     paper = []
 
     for i in stars:

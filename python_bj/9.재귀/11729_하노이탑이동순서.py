@@ -12,36 +12,35 @@
 두 번째 줄부터 수행 과정을 출력한다. 두 번째 줄부터 K개의 줄에 걸쳐 두 정수 A B를 빈칸을 사이에 두고 출력하는데, 
 이는 A번째 탑의 가장 위에 있는 원판을 B번째 탑의 가장 위로 옮긴다는 뜻이다.
 """
-# k = 0
-# arr = []
-# def hanoi(n, start, mid, end):
-#     global k
-#     k += 1
-#     if n == 1:
-#         arr.append(str(start)+" "+str(end))
-#         return
-#     hanoi(n-1, start, end, mid)
-#     arr.append(str(start)+" "+str(end))
-#     hanoi(n-1, mid, start, end)
-#     return
-# n = int(input())
-# hanoi(n, 1, 2, 3)
-# print(k)
-# print("\n".join(arr))
-
 k = 0
+arr = []
 def hanoi(n, start, mid, end):
     global k
     k += 1
-    
     if n == 1:
-        print(f"{start} {end}")
-    else:
-        hanoi(n-1, start, end, mid)
-        print(f"{start} {end}")
-        hanoi(n-1, mid, end, start)
-    
-
+        arr.append(str(start)+" "+str(end))
+        return
+    hanoi(n-1, start, end, mid)
+    arr.append(str(start)+" "+str(end))
+    hanoi(n-1, mid, start, end)
+    return
 n = int(input())
+hanoi(n, 1, 2, 3)
 print(k)
-hanoi(n,1,2,3)
+print("\n".join(arr))
+#n개의 원판 중 가장 아래의 원판을 목적지에 옮기려면 n-1개의 원판을 중간 경로로 옮겨야 하는 것을 이용
+
+# k = 0
+# def hanoi(n, start, mid, end):
+#     global k
+#     k += 1
+    
+#     if n == 1:
+#         print(f"{start} {end}")
+#     else:
+#         hanoi(n-1, start, end, mid)
+#         print(f"{start} {end}")
+#         hanoi(n-1, mid, end, start)
+# n = int(input())
+# print(k)
+# hanoi(n,1,2,3)
