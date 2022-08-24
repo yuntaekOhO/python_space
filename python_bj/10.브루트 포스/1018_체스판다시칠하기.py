@@ -13,22 +13,23 @@
 
 첫째 줄에 지민이가 다시 칠해야 하는 정사각형 개수의 최솟값을 출력한다.
 """
+#검은색으로 시작하는 체스판인 경우와 하얀색으로 시작하는 경우의 색칠해야 하는 횟수를 모두 구해서 더 작은 횟수를 출력한다.
 import sys
  
 N, M = map(int, sys.stdin.readline().split())
  
 board = []
-white_first = []
-black_first = []
+white_first = [] #하얀색으로 시작하는 경우 다시 칠해야 하는 횟수
+black_first = [] #검정색으로 시작하는 경우 다시 칠해야 하는 횟수
  
 for _ in range(N):
-    row = sys.stdin.readline().replace("\n", "") #여러 줄 입력
-    board.append([i for i in row]) #2단 리스트로 저장
+    row = sys.stdin.readline().replace("\n", "") #한 줄씩 입력
+    board.append([i for i in row]) #2단 리스트로  'W','B' 하나씩 저장
  
 initial_color = board[0][0] # 좌상단 첫번째 칸 색 초기화
  
 # 흰색으로 시작하는 체스판을 만들 경우
-for index, row in enumerate(board):
+for index, row in enumerate(board): #enumerate(board) : board에 저장된 index, value를 반복문으로 하나씩 뽑음
     painting = [] #흰색으로 시작하는 경우 색을 바꿔야하는 칸의 수 저장할 리스트
     if index % 2 == 0: current_color = "W" #짝수 인덱스는 White
     else: current_color = "B" #홀수 인덱스는 Black

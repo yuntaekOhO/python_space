@@ -12,7 +12,7 @@
 #for ~ else : 반복문에서 break를 거치지 않는 경우 else로 도달
 #exit(0) : 프로그램 강제종료 -> 반복 탈출 : else문에서 break 사용 불가능하기 때문에 exit(0)사용
 n = int(input())
-for i in range(n):
+for i in range(n): # 0 ~ n 모든 수 검사
     digit = i
     temp = i
     while temp:

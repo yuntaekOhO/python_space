@@ -7,7 +7,7 @@ def seqsearch(n, S, x):
     location = 1
     while (location <= n and S[location] != x):
         location += 1
-    if (location > n):
+    if (location > n): # S 리스트에 찾는 값이 없을 때, location==n 이후에 location+1 되고 while문 탈출 하고 여기로 옴
         location = 0
     return location
 
