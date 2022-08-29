@@ -30,3 +30,18 @@ def say_myself(name, old, man=True):
         print("여자")
 say_myself("우영우",20,False)
 say_myself("홍길동",22)
+
+# sorted( <list> , key=<function> , reverse=<bool> )
+# : 원본 내용을 바꾸지 않고, 정렬한 값을 반환
+#   List, Tuple, Dictionary, str에 모두 사용 가능
+#   key 속성을 통하여 정렬할 기준을 정할 수 있다.
+#   reverse 속성이 True면 내림차순, False면 오름차순으로 정렬. (Default-False)
+arr = [10, 40, 20, 15]
+#arr = sorted(arr, reverse=True)
+print("sorted() :" , sorted(arr, reverse=True))
+print("arr :",arr)
+
+# <list>.sort(key=<function>, reverse=<bool>)
+# : 원본 자체를 수정한다
+#   반환값은 None
+#   Tuple, Dictionary, str은 사용 불가
