@@ -23,5 +23,5 @@ while True:
     if cnt == n:
         print(jongmal)
         break
-    jongmal += 1
+    jongmal += 1 # 666 = 최소, 하나씩 증가하며 cnt=n 이 될 때까지 반복
 
