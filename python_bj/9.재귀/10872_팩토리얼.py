@@ -5,7 +5,7 @@
 
 # runtimeError : RecursionError : maximum recursion depth exceeded in comparison
 #  n >= 998이면 에러, Python이 정한 최대 재귀 깊이가 더 깊어 졌을 때 발생
-# calc(n)을 호출하면 총 n+1번의 재귀 호출이 발생합니다. 
+# calc(n)을 호출하면 총 n+1번의 재귀 호출이 발생 
 # print(calc(n))으로 함수를 호출하고 있기 때문에, print(calc(n))의 재귀의 깊이는 n+2가 됩니다. 
 # 따라서, n < 998의 경우에는 RecursionError가 발생하지 않지만, n ≥ 998부터는 RecursionError가 발생하게 됩니다.
 
