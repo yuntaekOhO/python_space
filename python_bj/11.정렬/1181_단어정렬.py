@@ -35,7 +35,7 @@ import sys
 arr = []
 n = int(sys.stdin.readline())
 for _ in range(n):
-    a = sys.stdin.readline().replace('\n','')
+    a = sys.stdin.readline().replace('\n','') #strip(): 양 끝 공백 제거,\n도
     arr.append(a)
 arr = list(set(arr))
 

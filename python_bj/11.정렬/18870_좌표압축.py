@@ -25,7 +25,7 @@ X1, X2, ..., XN에 좌표 압축을 적용한 결과 X'1, X'2, ..., X'N를 출�
 import sys
 N = int(sys.stdin.readline())
 arr = list(map(int,sys.stdin.readline().split()))
-arr2 = []
+#arr2 = []
 arr2 = list(sorted(set(arr)))
 dic = {arr2[i]:i for i in range (len(arr2))}
 for i in arr:

@@ -10,7 +10,8 @@
 첫째 줄에 답을 출력한다. 생성자가 없는 경우에는 0을 출력한다.
 """
 #for ~ else : 반복문에서 break를 거치지 않는 경우 else로 도달
-#exit(0) : 프로그램 강제종료 -> 반복 탈출 : else문에서 break 사용 불가능하기 때문에 exit(0)사용
+#exit(0) : 프로그램 강제종료 -> 반복 탈출 : else문에서 break 사용 불가능하기 때문에 exit(0)사용'
+#int형 여러 자리수 str()로 map(int, str(N)) 이런식
 n = int(input())
 for i in range(n): # 0 ~ n 모든 수 검사
     digit = i
@@ -20,7 +21,7 @@ for i in range(n): # 0 ~ n 모든 수 검사
         temp //= 10
     if digit == n:
         break
-else:
+else: #생성자가 없는 경우
     print(0)
     exit(0)
 print(i)

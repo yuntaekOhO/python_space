@@ -21,3 +21,5 @@ point.sort()
 for i in point:
     result = str(i[0])+' '+str(i[1])
     print(result)
+
+# 2차원 배열 출력 : for x, y in arr: print(x,y)

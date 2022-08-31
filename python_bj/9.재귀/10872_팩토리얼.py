@@ -23,7 +23,7 @@
 #         return n * fac(n-1)
 # n = int(input())
 # print(fac(n))
-
+# math.factorial() - 내장 함수있음
 def fact(n):
     ans = 1
     for i in range(1, n+1):

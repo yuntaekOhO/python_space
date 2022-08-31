@@ -30,6 +30,7 @@ initial_color = board[0][0] # 좌상단 첫번째 칸 색 초기화
  
 # 흰색으로 시작하는 체스판을 만들 경우
 for index, row in enumerate(board): #enumerate(board) : board에 저장된 index, value를 반복문으로 하나씩 뽑음
+    print(index,row)
     painting = [] #흰색으로 시작하는 경우 색을 바꿔야하는 칸의 수 저장할 리스트
     if index % 2 == 0: current_color = "W" #짝수 인덱스는 White
     else: current_color = "B" #홀수 인덱스는 Black
