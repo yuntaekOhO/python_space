@@ -54,14 +54,14 @@ ex)4-Queens
 def n_queens(i, col):
     n = len(col) - 1
     if(promising(i, col)):
-        if(i == n):
+        if(i == n): #마지막 행까지 탐색 했을 경우
             print(col[1: n+1])
         else:
             for j in range(1, n+1):
                 col[i+1] = j
                 n_queens(i+1, col)
 
-def promising(i, col): # i는 depth(level), k는 순차적으로 탐색하는 인덱스
+def promising(i, col): # i는 현재 depth(level), k는 순차적으로 탐색하는 인덱스
     k = 1
     flag = True
     while(k<i and flag):
