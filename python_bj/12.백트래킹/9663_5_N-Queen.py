@@ -9,17 +9,17 @@ N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 
 # answer = [0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14200, 73712, 365596]
 # print(answer[int(input())])
 
-
 # 퀸 : 가로, 세로, 대각선으로 이동
+
 n = int(input())
 queen = [0] * n
 result = 0
 
+#열, 대각선 상에 있는지 체크
 def isAdjecent(idx):
     for i in range(idx):
         if queen[idx] == queen[i] or abs(queen[idx] - queen[i]) == idx - i:
             return False
-
     return True
 
 def dfs(idx):
@@ -27,7 +27,6 @@ def dfs(idx):
         global result
         result += 1
         return
-
     for i in range(n):
         queen[idx] = i
         if isAdjecent(idx):

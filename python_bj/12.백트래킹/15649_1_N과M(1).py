@@ -8,22 +8,33 @@
 중복되는 수열을 여러 번 출력하면 안되며, 각 수열은 공백으로 구분해서 출력해야 한다.
 수열은 사전 순으로 증가하는 순서로 출력해야 한다.
 """
-# 1부터 오름차순
-# 중복되지 않는다.
-
-n, m = map(int, input().split())
 arr = []
-
-def suyeol():
-    if len(arr) == m: #(5) : 리스트의 길이가 수열의 길이 m과 같으면 출력, 아니면 loop
+def res():
+    if len(arr) == m:
         print(' '.join(map(str, arr)))
         return
-    for i in range(1, n+1): #(1) : 1부터 n까지
-        if i not in arr: #(2) : 리스트에 없다면 = 중복되지 않다면 // (6) : 재귀 중이라면 i+1 을 리스트에 추가
-            arr.append(i) #(3) : 추가
-            suyeol() #(4) : 재귀
-            arr.pop() #(6) : 리스트의 길이가 수열의 길이 m과 같다는 조건을 만족하면 출력 후 맨 뒤에 삽입된 i 꺼내고 i 증가
-suyeol()
+    for i in range(1, n+1):
+        if i not in arr:
+            arr.append(i)
+            res()
+            arr.pop()
+n, m = map(int, input().split())
+res()
+
+
+# n, m = map(int, input().split())
+# arr = []
+
+# def suyeol():
+#     if len(arr) == m: #(5) : 리스트의 길이가 수열의 길이 m과 같으면 출력, 아니면 loop
+#         print(' '.join(map(str, arr)))
+#         return
+#     for i in range(1, n+1): #(1) : 1부터 n까지
+#         if i not in arr: #(2) : 리스트에 없다면 = 중복되지 않다면 // (6) : 재귀 중이라면 i+1 을 리스트에 추가
+#             arr.append(i) #(3) : 추가
+#             suyeol() #(4) : 재귀
+#             arr.pop() #(6) : 리스트의 길이가 수열의 길이 m과 같다는 조건을 만족하면 출력 후 맨 뒤에 삽입된 i 꺼내고 i 증가
+# suyeol()
 
 
 
