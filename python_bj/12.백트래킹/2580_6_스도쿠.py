@@ -13,29 +13,33 @@
 모든 빈 칸이 채워진 스도쿠 판의 최종 모습을 아홉 줄에 걸쳐 한 줄에 9개씩 한 칸씩 띄워서 출력한다.
 스도쿠 판을 채우는 방법이 여럿인 경우는 그 중 하나만을 출력한다.
 """
-import sys
-import numpy as np
-def fun(x):
-    #for i in range(9):
-        #for j in range(9):
-            #print(matrix[i][j], end="")
-        
-    
-        #print()
-    return
-
-
-
-
-#0에 들어갈 숫자를 찾으면 True
-z = np.zeros((9,9) ,dtype=bool)
-
-#입력
 matrix = [list(map(int, input().split())) for _ in range(9)]
+print(matrix)
 
 #0의 개수 : 찾아야할 수의 개수
-cnt = 0
+zeros = []
 for i in range(9):
-    cnt += matrix[i].count(0)
+    cnt = matrix[i].count(0)
+    zeros.append(cnt)
+print(zeros)
 
-fun(0)
+
+
+
+# import sys
+# import numpy as np
+# def fun(x):
+#     #for i in range(9):
+#         #for j in range(9):
+#             #print(matrix[i][j], end="")
+#         #print()
+#     return
+# #0에 들어갈 숫자를 찾으면 True
+# z = np.zeros((9,9) ,dtype=bool)
+# #입력
+# matrix = [list(map(int, input().split())) for _ in range(9)]
+# #0의 개수 : 찾아야할 수의 개수
+# cnt = 0
+# for i in range(9):
+#     cnt += matrix[i].count(0)
+# fun(0)

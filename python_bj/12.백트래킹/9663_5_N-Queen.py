@@ -17,21 +17,19 @@ result = 0
 
 #열, 대각선 상에 있는지 체크
 def isAdjecent(idx):
-    for i in range(idx):
+    for i in range(idx): #행
         if queen[idx] == queen[i] or abs(queen[idx] - queen[i]) == idx - i:
             return False
     return True
-
 def dfs(idx):
     if idx == n:
         global result
         result += 1
         return
     for i in range(n):
-        queen[idx] = i
+        queen[idx] = i  #열
         if isAdjecent(idx):
             dfs(idx + 1)
-
 dfs(0)
 print(result)
 

@@ -8,6 +8,9 @@
 중복되는 수열을 여러 번 출력하면 안되며, 각 수열은 공백으로 구분해서 출력해야 한다.
 수열은 사전 순으로 증가하는 순서로 출력해야 한다.
 """
+from itertools import permutations
+
+#import itertools permutations
 arr = []
 def res():
     if len(arr) == m:
