@@ -34,7 +34,7 @@ oper = list(map(int, input().split()))
 #     if a < 0: return -(abs(a) // b)
 #     return a // b
 
-#재귀함수를 이용한 백트래킹
+#백트래킹
 #최초 재귀함수 입력값 : 1, nums[0] - 1=몇번째 수열인지 확인, nums[0]=해당위치의 수열값 ==> 재귀를 하며 다음값으로 변함
 #최댓값, 최소값 -10억, 10억으로 초기화
 maxVal = -1e9
