@@ -10,8 +10,9 @@
 #그 해결 방법으로 copy module의 deepcopy(list)를 사용
 # * copy()함수는 이차원 이상의 리스트처럼 내부의 또다른 객체까지 복사하지 못한다. = 1차원일 때만 사용
 # copy module이 아닌 파이썬의 기본적인 클래스들이 갖는 copy() 메서드 사용해도 됨 = list도 copy()를 보유함 => list.copy()
-# 그외 슬라이싱[:]으로 할당 list(원본) 등등 가능
-#https://crackerjacks.tistory.com/14
+# 그외 슬라이싱[:]으로 할당 list(원본) 등등 가능  **deepcopy()가 여러 방법들 중 가장 느리고 슬라이싱[:]이 가장 빠르다
+#https://crackerjacks.tistory.com/14 
+#https://velog.io/@emplam27/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B9%8A%EC%9D%80%EB%B3%B5%EC%82%AC%EB%8A%94-deepcopy%EA%B0%80-%EB%B9%A0%EB%A5%BC%EA%B9%8C-slicing%EC%9D%B4-%EB%B9%A0%EB%A5%BC%EA%B9%8C
 """
 파이썬에서 객체를 복사할 경우 두가지 경우가 존재함. (ps. Mutable, Immutable)
 1.얕은복사
@@ -40,12 +41,13 @@ def dfs(arr,i):
     if i > 3:
         safe = 0
         q, w = 0, 0
-        arr2 = copy.deepcopy(arr)
-        #arr2 = list()
-        #arr2.extend(arr)
+        #2차원 리스트를 module로 깊은 복사 *가장 느림
+        #arr2 = copy.deepcopy(arr)
+        #2차원 리스트를 슬라이싱으로 깊은복사 *빠름
+        arr2 = [item[:] for item in arr]
         for j in range(n):
             for k in range(m):
-                if arr[j][k] == 2:
+                if arr2[j][k] == 2:
                     q, w = j, k
                     temp = virus(arr2,q,w)
         for a in range(n):
