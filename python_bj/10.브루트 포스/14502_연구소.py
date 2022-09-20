@@ -3,6 +3,8 @@
 벽을 3개를 놨을 때 안전지대가 가장 많은 경우의 안전지대(0)의 개수
 벽이 아닌 곳(0)에 벽을 순서대로 놓고 바이러스를 확산시켰을 때 0의 갯수가 가장 많은 경우를 구한다
 """
+#예제입력 통과
+#시간초과
 from collections import deque
 import queue
 import copy
@@ -21,19 +23,14 @@ def dfs(arr,i):
     if i > 3:
         safe = 0
         q, w = 0, 0
-        flag = True
+        arr2 = copy.deepcopy(arr)
         for j in range(n):
             for k in range(m):
                 if arr[j][k] == 2:
                     q, w = j, k
-                    flag = False
-                    break
-            if flag==False:
-                break
-        temp = virus(arr,q,w)
+                    temp = virus(arr2,q,w)
         for a in range(n):
             safe += temp[a].count(0)
-            #safe = virus(arr,0,0)[a].count(0)
         result.append(safe)
         return
     for x in range(n):
@@ -45,14 +42,10 @@ def dfs(arr,i):
             
 def virus(arr,x,y):
     #바이러스 확산시켜 보기
-    # global result
-    #safe = 0
-    arr2 = copy.deepcopy(arr)
     queue = deque()
     queue.append((x,y))
     while queue:
         x, y = queue.popleft()
-        #if arr2[x][y] == 2:
         for k in range(4):
             fx = x + px[k]
             fy = y + py[k]
@@ -60,19 +53,16 @@ def virus(arr,x,y):
             if fx < 0 or fx >= n or fy < 0 or fy >= m:
                 continue
             #벽을 놓을 수 없는 경우 (벽(1)인 경우 또는 바이러스 근원지(2)인 경우)
-            if arr2[fx][fy] != 0:
+            if arr[fx][fy] != 0:
                 continue
-            if arr2[fx][fy] == 0:
+            if arr[fx][fy] == 0:
                 queue.append((fx,fy))
-                arr2[fx][fy] = 2
-
-                
-    #print("바이러스 확산 ",arr2, sep="\n")
-    return arr2
+                arr[fx][fy] = 2                
+    return arr
 
 dfs(inputs,1)
 print(max(result))
-#print(max(result))
+
 
 
 
