@@ -4,7 +4,24 @@
 벽이 아닌 곳(0)에 벽을 순서대로 놓고 바이러스를 확산시켰을 때 0의 갯수가 가장 많은 경우를 구한다
 """
 #예제입력 통과
-#시간초과
+#시간초과 : 재귀함수 때문인 듯?
+#함수의 인자를 통해 리스트를 전달하고 함수 내에서 값을 변경하면 
+#원래의 리스트의 값도 변경되는데
+#그 해결 방법으로 copy module의 deepcopy(list)를 사용
+# * copy()함수는 이차원 이상의 리스트처럼 내부의 또다른 객체까지 복사하지 못한다. = 1차원일 때만 사용
+# copy module이 아닌 파이썬의 기본적인 클래스들이 갖는 copy() 메서드 사용해도 됨 = list도 copy()를 보유함 => list.copy()
+# 그외 슬라이싱[:]으로 할당 list(원본) 등등 가능
+#https://crackerjacks.tistory.com/14
+"""
+파이썬에서 객체를 복사할 경우 두가지 경우가 존재함. (ps. Mutable, Immutable)
+1.얕은복사
+    = 로 값을 대입하는 경우
+    리스트의 경우 = 로 값 대입하면 리스트의 '주소'를 참조하기 때문에
+    값을 변경,수정할 경우 원본 배열과 복사한 배열이 동일하게 변경이 적용
+2.깊은복사
+    객체 자체를 새롭게 만드는 행위.
+
+"""
 from collections import deque
 import queue
 import copy
@@ -24,6 +41,8 @@ def dfs(arr,i):
         safe = 0
         q, w = 0, 0
         arr2 = copy.deepcopy(arr)
+        #arr2 = list()
+        #arr2.extend(arr)
         for j in range(n):
             for k in range(m):
                 if arr[j][k] == 2:
