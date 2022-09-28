@@ -18,3 +18,6 @@ def exam(a):
 arr1 = list()
 # print(arr1)
 exam(arr1)
+
+exam1 = list()
+print('list()로 선언만 한 리스트 길이',len(exam1))

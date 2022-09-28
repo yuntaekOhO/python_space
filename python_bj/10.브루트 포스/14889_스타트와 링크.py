@@ -15,50 +15,39 @@ import sys
 
 n = int(input())
 s = list() #능력치 표
-# startTeam = 0
-# linkTeam = 0
 pick = list()
-#pick2 = list()
-#minVal = 4000001
+
 minVal = list()
 for _ in range(n):
     s.append(list(map(int, sys.stdin.readline().split())))
 
 def dfs(arr):
-    #print(arr)
-    if len(arr) == n/2:                                     #arr의 길이가 n/2개가 되면
+    if len(arr) == n/2:                                     #재귀 종료 조건 : arr의 길이가 n/2개가 되면
         startTeam = 0
         linkTeam = 0
         pick2 = list()
-        #global minVal
-        #print('arr 길이',len(arr))
-        for q in range(n):
-            if q not in pick:
+
+        for q in range(n):                                  #arr에 들어있는 번호 = 스타트팀 번호
+            if q not in arr:                                #arr에 not in한 번호 = 링크팀 번호
                 pick2.append(q)
-        #print('pick2 길이',len(pick2))
 
         for j in arr:
             for k in arr:
                 if j==k:                                    #자기 자신과 팀인 경우는 없다
                     continue
-                startTeam += (s[j][k] + s[k][j])          #스타트팀으로 선별된 사람들의 능력치 합
+                startTeam += (s[j][k])          #스타트팀으로 선별된 사람들의 능력치 합, 2중 for문으로 (j,k)+(k,j) 안해도 됨
         for j in pick2:
             for k in pick2:
                 if j==k:
                     continue
-                linkTeam += (s[j][k] + s[k][j])
-        #print('start',startTeam)
-        #print('link',linkTeam)
-        minVal.append(abs(startTeam-linkTeam))
-        #print('min',minVal)
-        #print('min',abs(startTeam-linkTeam))
+                linkTeam += (s[j][k])
+        minVal.append(abs(startTeam-linkTeam)) #두 팀의 차이를 minVal 리스트에 저장
         return
     
     for i in range(len(arr),n):
-        #if i not in arr:
-            arr.append(i)                                   #0~n까지 순서대로 n/2개 arr에 담기
-            dfs(arr)                                        #재귀
-            arr.pop()                                      #재귀 나와서 마지막에 들어간 번호 빼고 다음 번호 넣음
+        arr.append(i)                                   #0~n까지 순서대로 n/2개 arr에 담기
+        dfs(arr)                                        #재귀
+        arr.pop()                                      #재귀 나와서 마지막에 들어간 번호 빼고 다음 번호 넣음
 
-dfs(pick)
+dfs(pick)                                               #pick은 list()로 선언만 해둔 상태
 print(min(minVal))
