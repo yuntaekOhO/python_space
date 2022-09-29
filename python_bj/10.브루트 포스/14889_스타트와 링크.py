@@ -13,7 +13,7 @@ n/2로 팀을 나누었을 때 두 팀의 능력치 총합끼리의 차이가 �
 """
 import sys
 
-n = int(input())
+n = int(sys.stdin.readline())
 s = list() #능력치 표
 pick = list()
 
