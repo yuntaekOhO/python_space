@@ -68,3 +68,7 @@ print(m.count(1)) # 5
 #리스트에 리스트 형태로 추가 (extend)
 n.extend(m)
 print(n) # [1, 2, 3, 5, 6, 1, 1, 1, 2, 3, 2, 1, 1, 3, 3] 
+
+ex = [0] * 10
+ex[0] = 1
+print('ex :', ex)

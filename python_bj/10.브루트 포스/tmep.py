@@ -21,3 +21,9 @@ exam(arr1)
 
 exam1 = list()
 print('list()로 선언만 한 리스트 길이',len(exam1))
+
+n = int(input())
+painting = []
+for i in range(n):
+    painting.append(list(input()))
+print(painting)

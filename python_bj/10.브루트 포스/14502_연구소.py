@@ -23,6 +23,7 @@
     객체 자체를 새롭게 만드는 행위.
 
 """
+#[pypy3 통과!!]
 from collections import deque
 import queue
 import copy
@@ -36,22 +37,27 @@ py = [0,0,-1,1]
 
 result = list()
 
+#벽(1)을 세우는 재귀함수
 def dfs(arr,i):
     global result
+    #종료조건
     if i > 3:
         safe = 0
         q, w = 0, 0
         #2차원 리스트를 module로 깊은 복사 *가장 느림
         #arr2 = copy.deepcopy(arr)
-        #2차원 리스트를 슬라이싱으로 깊은복사 *빠름
+        #2차원 리스트를 슬라이싱으로 깊은복사 *비교적 빠름
         arr2 = [item[:] for item in arr]
+        #바이러스(2) 찾기
         for j in range(n):
             for k in range(m):
                 if arr2[j][k] == 2:
-                    q, w = j, k
-                    temp = virus(arr2,q,w)
+                    #바이러스를 모두 확산시킨 배열을 temp에 저장
+                    temp = virus(arr2,j,k)
+        #temp에 안전지대(0)의 개수 세기
         for a in range(n):
             safe += temp[a].count(0)
+        #모든 케이스의 안전지대의 수 result에 저장
         result.append(safe)
         return
     for x in range(n):
@@ -61,11 +67,16 @@ def dfs(arr,i):
                 dfs(arr,i+1)
                 arr[x][y] = 0
             
+#바이러스(2)를 확산시키는 함수
 def virus(arr,x,y):
-    #바이러스 확산시켜 보기
     queue = deque()
     queue.append((x,y))
     while queue:
+        #popleft()의 시간복잡도 = O(1)
+        #popleft()는 가장 첫번째 들어간 요소를 빼내는 것
+        #list의 pop(0)과 같아보이지만 pop(0)의 시간복잡도는 O(n)
+        #이렇게 직접 인덱스를 지정한 경우는 O(n)이지만
+        #pop()으로 인덱스 없이 사용한 경우(가장 뒤의 요소를 빼내는 경우)는 O(1)이다
         x, y = queue.popleft()
         for k in range(4):
             fx = x + px[k]
@@ -73,7 +84,7 @@ def virus(arr,x,y):
             #상하좌우 중 이동할 수 없는 경우(값이 없는 경우)
             if fx < 0 or fx >= n or fy < 0 or fy >= m:
                 continue
-            #벽을 놓을 수 없는 경우 (벽(1)인 경우 또는 바이러스 근원지(2)인 경우)
+            #벽을 놓을 수 없는 경우 (벽(1)인 경우 또는 바이러스(2)인 경우)
             if arr[fx][fy] != 0:
                 continue
             if arr[fx][fy] == 0:

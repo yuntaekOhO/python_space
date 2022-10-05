@@ -6,11 +6,22 @@ i번 줄의 j번째 수는 Sij 이다. Sii는 항상 0이고,
 
 첫째 줄에 스타트 팀과 링크 팀의 능력치의 차이의 최솟값을 출력한다.
 
+1.능력치 표를 s에 저장
+2.재귀함수에 빈 배열(pick)을 인자로 실행, 함수 내에선 arr
+3.arr에 len(arr) ~ n 까지의 값을 넣고 재귀
+4.그러다 len(arr)이 n/2가 되면 arr에 없는 len(arr) ~ n 까지의 값을 pick2에 넣고
+* arr(pick) = 스타트 팀, pick2 = 링크 팀
+5.능력치표 s의 인덱스로써 arr과 pick2 사용
+6.arr의 요소를 사용한 값의 합과 pick2의 요소를 사용한 값의합의 차를 구해 minVal에 저장
+7.재귀를 통해 모든 경우의 차를 모두 구하고
+8.재귀가 끝나면 minVal의 최소값을 출력
+
 n/2로 팀을 나누었을 때 두 팀의 능력치 총합끼리의 차이가 가장 적은 경우
 백트래킹 : 
 스타트 팀의 n/2명이 결정되었을 때 나머지는 링크팀
 종료조건 - 현재 탐색이 한 팀의 팀원수(n/2)에 도달했을 때 팀별 능력치 합의 차이를 비교
 """
+#[시간초과!!]
 import sys
 
 n = int(sys.stdin.readline())
@@ -44,6 +55,7 @@ def dfs(arr):
         minVal.append(abs(startTeam-linkTeam)) #두 팀의 차이를 minVal 리스트에 저장
         return
     
+    #종료조건에 만족하기 전
     for i in range(len(arr),n):
         arr.append(i)                                   #0~n까지 순서대로 n/2개 arr에 담기
         dfs(arr)                                        #재귀
